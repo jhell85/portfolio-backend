@@ -8,7 +8,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use("/", router);
-app.listen(5000, () => console.log("Server Running we are in ", process.env.NODE_ENV));
+app.listen(process.env.PORT || 5000, () =>
+  console.log("Server Running we are in ", process.env.NODE_ENV)
+);
 
 const contactEmail = nodemailer.createTransport({
   host: "smtp.gmail.com",
